@@ -5,10 +5,10 @@ import click
 import pickle
 import pandas as pd
 
-from data import read_data, split_train_val_data
-from entities import TrainingPipelineParams, read_training_pipeline_params
-from models import Classifier, get_score
-from features import make_features, extract_target, build_transformer
+from src.data import read_data, split_train_val_data
+from src.entities import TrainingPipelineParams, read_training_pipeline_params
+from src.models import Classifier, get_score
+from src.features import make_features, extract_target, build_transformer
 
 
 APPLICATION_NAME = "homework_1"
