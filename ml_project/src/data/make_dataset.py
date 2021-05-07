@@ -3,7 +3,7 @@ from typing import Tuple
 import pandas as pd
 import sklearn
 
-from source.entities import SplittingParams
+from src.entities import SplittingParams
 
 
 def read_data(path: str) -> pd.DataFrame:

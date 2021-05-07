@@ -2,7 +2,7 @@ import numpy as np
 import sklearn
 import pickle
 
-from source.entities import ClassifierParams
+from src.entities import ClassifierParams
 
 
 class Classifier:
