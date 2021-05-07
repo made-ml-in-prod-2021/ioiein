@@ -2,11 +2,11 @@ import numpy as np
 import sklearn
 import pickle
 
-from source.entities import TrainingParams
+from source.entities import ClassifierParams
 
 
 class Classifier:
-    def __init__(self, params: TrainingParams):
+    def __init__(self, params: ClassifierParams):
         if params.model_type == "Logistic Regression":
             self.model = sklearn.linear_model.LinearRegression(
                 C=params.C, penalty=params.penalty, random_state=params.random_state, n_jobs=params.n_jobs,

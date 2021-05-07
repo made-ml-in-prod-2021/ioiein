@@ -3,7 +3,7 @@ from typing import Optional
 
 
 @dataclass()
-class TrainingParams:
+class ClassifierParams:
     model_type: str
     penalty: Optional[str]
     C: Optional[float]
