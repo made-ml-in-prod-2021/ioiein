@@ -1,5 +1,6 @@
 import numpy as np
 import sklearn
+import sklearn.ensemble
 import pickle
 
 from src.entities import ClassifierParams

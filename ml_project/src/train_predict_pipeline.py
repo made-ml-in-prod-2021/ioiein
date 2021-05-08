@@ -21,7 +21,7 @@ def setup_logging(path: str) -> None:
         logging.config.dictConfig(yaml.safe_load(config_f))
 
 
-def train_pipeline(params: TrainingPipelineParams) -> None:
+def train_pipeline(params: TrainingPipelineParams) -> float:
     logger.info(f"train pipeline started")
     data = read_data(params.input_data_path)
     logger.info(f"data opened, shape {data.shape}")
@@ -53,9 +53,10 @@ def train_pipeline(params: TrainingPipelineParams) -> None:
         pickle.dump(transformer, f)
     logger.info(f"transformer dumped")
     logger.info(f"train pipeline finished")
+    return score
 
 
-def predict_pipeline(params: TrainingPipelineParams) -> None:
+def predict_pipeline(params: TrainingPipelineParams) -> pd.DataFrame:
     logger.info(f"predict pipeline started")
     data = read_data(params.input_data_predict_path)
     logger.info(f"data opened")
@@ -71,6 +72,7 @@ def predict_pipeline(params: TrainingPipelineParams) -> None:
     logger.info(f"predicts ready")
     pd.DataFrame(predicts, columns=["target"]).to_csv(params.output_data_predict_path, index=False)
     logger.info(f"predict pipeline finished")
+    return pd.DataFrame(predicts, columns=["target"])
 
 
 @click.command(name="train_predict_pipeline")
