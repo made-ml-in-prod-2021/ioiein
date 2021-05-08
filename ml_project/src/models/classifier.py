@@ -8,7 +8,7 @@ from src.entities import ClassifierParams
 class Classifier:
     def __init__(self, params: ClassifierParams):
         if params.model_type == "Logistic Regression":
-            self.model = sklearn.linear_model.LinearRegression(
+            self.model = sklearn.linear_model.LogisticRegression(
                 C=params.C, penalty=params.penalty, random_state=params.random_state, n_jobs=params.n_jobs,
                 max_iter=params.max_iter
             )

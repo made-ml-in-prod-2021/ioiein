@@ -4,6 +4,8 @@ import sklearn
 import sklearn.pipeline
 import sklearn.compose
 import sklearn.impute
+import sklearn.base
+import sklearn.preprocessing
 
 from src.entities import FeatureParams
 
@@ -13,9 +15,10 @@ class CustomStdScaler(sklearn.base.BaseEstimator, sklearn.base.TransformerMixin)
         self.mean = 0
         self.std = 1
 
-    def fit(self, x: np.ndarray) -> None:
+    def fit(self, x: np.ndarray) -> "CustomStdScaler":
         self.mean = x.mean(axis=0)
         self.std = x.std(axis=0)
+        return self
 
     def transform(self, x: np.ndarray) -> np.ndarray:
         x = (x - self.mean) / self.std
@@ -26,7 +29,7 @@ def build_categorical_pipeline() -> sklearn.pipeline.Pipeline:
     categorical_pipeline = sklearn.pipeline.Pipeline(
         [
             ("impute", sklearn.impute.SimpleImputer(missing_values=np.nan, strategy="most_frequent")),
-            ("ohe", sklearn.preprocessing.OneHotEncoder()),
+            ("ohe", sklearn.preprocessing.OneHotEncoder(handle_unknown='ignore')),
         ]
     )
     return categorical_pipeline
