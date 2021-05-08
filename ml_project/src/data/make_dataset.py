@@ -2,6 +2,7 @@ from typing import Tuple
 
 import pandas as pd
 import sklearn
+import sklearn.model_selection
 
 from src.entities import SplittingParams
 

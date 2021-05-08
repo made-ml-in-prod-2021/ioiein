@@ -1,4 +1,4 @@
-from classifier import Classifier, get_score
+from .classifier import Classifier, get_score
 
 __all__ = [
     "Classifier",

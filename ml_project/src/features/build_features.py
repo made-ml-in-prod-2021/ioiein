@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 import sklearn
+import sklearn.pipeline
+import sklearn.compose
+import sklearn.impute
 
 from src.entities import FeatureParams
 

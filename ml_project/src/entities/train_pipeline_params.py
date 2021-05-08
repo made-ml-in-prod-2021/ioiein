@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from feature_params import FeatureParams
-from split_params import SplittingParams
-from train_params import ClassifierParams
 from marshmallow_dataclass import class_schema
 import yaml
+
+from .feature_params import FeatureParams
+from .split_params import SplittingParams
+from .train_params import ClassifierParams
 
 
 @dataclass
