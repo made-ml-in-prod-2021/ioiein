@@ -15,8 +15,6 @@ sklearn==0.0
 threadpoolctl==2.1.0
 typing-extensions==3.10.0.0
 typing-inspect==0.6.0
-
-src~=0.1.0
 pytest~=6.2.4
 Faker~=8.1.2
 setuptools~=56.1.0

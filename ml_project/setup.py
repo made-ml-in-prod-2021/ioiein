@@ -6,7 +6,7 @@ with open('requirements.txt') as f:
 
 
 setup(
-    name="src",
+    name="ml_project",
     packages=find_packages(),
     version="0.1.0",
     description="Example of ml project",
