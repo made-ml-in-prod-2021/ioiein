@@ -4,7 +4,7 @@ import pandas as pd
 import sklearn
 import sklearn.model_selection
 
-from src.entities import SplittingParams
+from ..entities import SplittingParams
 
 
 def read_data(path: str) -> pd.DataFrame:

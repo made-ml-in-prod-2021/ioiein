@@ -3,7 +3,7 @@ import sklearn
 import sklearn.ensemble
 import pickle
 
-from src.entities import ClassifierParams
+from ..entities import ClassifierParams
 
 
 class Classifier:

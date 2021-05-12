@@ -7,7 +7,7 @@ import sklearn.impute
 import sklearn.base
 import sklearn.preprocessing
 
-from src.entities import FeatureParams
+from ..entities import FeatureParams
 
 
 class CustomStdScaler(sklearn.base.BaseEstimator, sklearn.base.TransformerMixin):
