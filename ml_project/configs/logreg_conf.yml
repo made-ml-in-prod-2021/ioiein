@@ -1,0 +1,20 @@
+input_data_path: "data/raw/heart.csv"
+input_data_predict_path: "data/raw/sample_for_predict.csv"
+output_data_predict_path: "models/predicts.csv"
+output_model_path: "models/logistic_regression.pkl"
+output_transformer_path: "models/transformer.pkl"
+logger_config: "configs/logging.conf.yml"
+split_params:
+  validation_size: 0.2
+  random_state: 25
+feature_params:
+  categorical_features: ['sex', 'cp', 'restecg', 'exang', 'slope', 'fbs', 'ca', 'thal']
+  numerical_features: ['age', 'chol', 'thalach', 'oldpeak', 'trestbps']
+  target: 'target'
+classifier_params:
+  model_type: "Logistic Regression"
+  C: 1.0
+  penalty: "l2"
+  random_state: 25
+  n_jobs: -1
+  max_iter: 300
