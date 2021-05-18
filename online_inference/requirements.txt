@@ -17,3 +17,4 @@ typing-extensions==3.10.0.0
 uvicorn==0.13.4
 yml==0.0.1
 requests~=2.25.1
+pytest~=6.2.4

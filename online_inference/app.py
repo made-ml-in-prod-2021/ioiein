@@ -68,7 +68,10 @@ def load_model():
 
 @app.get("/status")
 def status() -> str:
-    return f"Pipeline is ready: {pipeline is not None}."
+    if pipeline is not None:
+        return f"Model is ready"
+    else:
+        return f"Model is not ready"
 
 
 @app.api_route("/predict", response_model=List[HeartResponse], methods=["GET", "POST"])
