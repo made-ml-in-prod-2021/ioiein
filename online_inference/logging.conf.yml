@@ -7,7 +7,7 @@ formatters:
 handlers:
   file_handler:
     class: logging.FileHandler
-    filename: homework_1.log
+    filename: homework_2.log
     level: DEBUG
     formatter: simple
 loggers:

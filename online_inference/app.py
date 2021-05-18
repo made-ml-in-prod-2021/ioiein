@@ -27,9 +27,8 @@ def setup_logging(path: str) -> None:
 def load_object(path_to_model: str) -> Pipeline:
     with open(path_to_model, "rb") as f:
         model = pickle.load(f)
-    return Pipeline([
-        ("model", model),
-    ])
+    logger.info("model loaded")
+    return model
 
 
 pipeline: Optional[Pipeline] = None
@@ -56,8 +55,9 @@ def main():
 
 @app.on_event("startup")
 def load_model():
-    setup_logging(DEFAULT_PATH_LOG_CONFIG)
-    model_path = os.getenv("PATH_TO_MODEL")
+    logger.info("service started")
+    model_path = os.getenv("PATH_TO_MODEL", "model.pkl")
+    logger.info("model path got")
     if model_path is None:
         e = f"PATH_TO_MODEL {model_path} is None"
         logger.error(e)
@@ -81,4 +81,5 @@ def predict(request: List[HeartData]):
 
 
 if __name__ == "__main__":
+    setup_logging(DEFAULT_PATH_LOG_CONFIG)
     uvicorn.run("app:app", host="0.0.0.0", port=os.getenv("PORT", 8000))
