@@ -1,19 +1,9 @@
-import datetime
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.utils.dates import days_ago
-from airflow.models import Variable
 
-DEFAULT_ARGS = {
-    "owner": "airflow",
-    "email": ["airflow@example.com"],
-    "email_on_failure": True,
-    "retries": 1,
-    "retry_delay": datetime.timedelta(minutes=5),
-}
+from constant import DEFAULT_ARGS, DATA_RAW_DIR, DATA_VOLUME_DIR
 
-DATA_RAW_DIR = "/data/raw/{{ ds }}"
-DATA_VOLUME_DIR = Variable.get("data_path")
 
 with DAG(
     "data_download",
