@@ -19,3 +19,6 @@ DATASET_RAW_TARGET_FILE_NAME = "target.csv"
 DATA_PROCESSED_DIR = "/data/processed/{{ ds }}"
 
 MODELS_DIR = "/data/models/{{ ds }}"
+MODEL_FILE_NAME = "model"
+
+DATA_PREDICTION_DIR = "/data/predictions/{{ ds }}"
