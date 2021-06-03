@@ -24,8 +24,7 @@ def validate(input_model_dir: str, input_dir: str):
     y = model.predict(x_val_data)
 
     metrics = {
-        "accuracy_score": accuracy_score(y_val_data.values, y),
-        "roc_auc_score": roc_auc_score(y_val_data, y)
+        "accuracy_score": accuracy_score(y_val_data.values, y)
     }
 
     with open(input_model_path / "metrics.json", "w") as f:

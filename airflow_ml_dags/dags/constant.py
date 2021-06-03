@@ -1,17 +1,16 @@
 import datetime
-from airflow.models import Variable
 
 
 DEFAULT_ARGS = {
-    "owner": "airflow",
-    "email": ["airflow@example.com"],
+    "owner": "ioiein",
+    "email": ["ioiein@icloud.com"],
     "email_on_failure": True,
     "retries": 1,
     "retry_delay": datetime.timedelta(minutes=5),
 }
 
 DATA_RAW_DIR = "/data/raw/{{ ds }}"
-DATA_VOLUME_DIR = Variable.get("data_path")
+DATA_VOLUME_DIR = "C:/data"
 
 DATASET_RAW_DATA_FILE_NAME = "data.csv"
 DATASET_RAW_TARGET_FILE_NAME = "target.csv"
