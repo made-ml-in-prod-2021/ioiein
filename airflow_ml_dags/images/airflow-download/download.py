@@ -12,8 +12,6 @@ def download(output_dir: str):
     os.makedirs(output_dir, exist_ok=True)
     x.to_csv(os.path.join(output_dir, "data.csv"), index=False)
     y.to_csv(os.path.join(output_dir, "target.csv"), index=False)
-    #x.to_csv('/'.join([output_dir, "data.csv"]), index=False)
-    #y.to_csv('/'.join([output_dir, "target.csv"]), index=False)
 
 
 if __name__ == '__main__':
