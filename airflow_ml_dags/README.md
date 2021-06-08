@@ -1,6 +1,6 @@
-**Запуск AirFlow**\
+**Запуск AirFlow:**\
 docker-compose up --build\
-**Запуса тестов**
+**Запуса тестов:**\
 pytest -v tests/\
 \
 Самоанализ:\
