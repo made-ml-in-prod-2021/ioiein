@@ -1,6 +1,5 @@
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.sensors.filesystem import FileSensor
 from airflow.utils.dates import days_ago
 
 from constant import DEFAULT_ARGS, DATA_RAW_DIR, DATA_VOLUME_DIR, DATASET_RAW_DATA_FILE_NAME, DATA_PROCESSED_DIR
