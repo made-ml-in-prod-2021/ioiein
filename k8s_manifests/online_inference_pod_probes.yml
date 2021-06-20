@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fastapi-probes
+  labels:
+    app: fastapi-ml-probes
+spec:
+  containers:
+    - image: ioiein/online_inference:v5
+      name: fastapi-ml-probes
+      ports:
+        - containerPort: 8000
+      resources:
+        requests:
+          memory: "128Mi"
+          cpu: "500m"
+        limits:
+          memory: "512Mi"
+          cpu: "900m"
+      readinessProbe:
+        httpGet:
+          path: /healz
+          port: 8000
+        initialDelaySeconds: 15
+        periodSeconds: 3
+      livenessProbe:
+        httpGet:
+          path: /healz
+          port: 8000
+        initialDelaySeconds: 45
+        periodSeconds: 3

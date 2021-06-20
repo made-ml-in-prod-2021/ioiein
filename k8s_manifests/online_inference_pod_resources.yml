@@ -9,7 +9,7 @@ spec:
     - image: ioiein/online_inference:v4
       name: fastapi-ml-resources
       ports:
-        - containerPort: 80
+        - containerPort: 8000
       resources:
         requests:
           memory: "128Mi"
