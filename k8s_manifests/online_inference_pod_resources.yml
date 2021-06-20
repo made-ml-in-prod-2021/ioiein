@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fastapi-resources
+  labels:
+    app: fastapi-ml-resources
+spec:
+  containers:
+    - image: ioiein/online_inference:v4
+      name: fastapi-ml-resources
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          memory: "128Mi"
+          cpu: "500m"
+        limits:
+          memory: "512Mi"
+          cpu: "900m"
