@@ -1,6 +1,9 @@
 import logging
 import os
 import pickle
+import time
+import subprocess
+import signal
 from typing import List, Optional
 
 import pandas as pd
@@ -53,8 +56,28 @@ def main():
     return "it is entry point of our predictor"
 
 
+@app.get("/healz")
+def health() -> bool:
+    return pipeline is not None
+
+@app.get("/kill")
+def timeout_check() -> bool:
+    proc = subprocess.Popen(["pgrep", "uvi"], stdout=subprocess.PIPE)
+    for pid in proc.stdout:
+        os.kill(int(pid), signal.SIGTERM)
+        # Check if the process that we killed is alive.
+        try:
+            os.kill(int(pid), 0)
+            raise Exception("""wasn't able to kill the process 
+                              HINT:use signal.SIGKILL or signal.SIGABORT""")
+        except OSError as ex:
+            continue
+    return False
+
+
 @app.on_event("startup")
 def load_model():
+    time.sleep(25)
     logger.info("service started")
     model_path = os.getenv("PATH_TO_MODEL", "model.pkl")
     logger.info("model path got")
